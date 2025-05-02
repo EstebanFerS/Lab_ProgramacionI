@@ -47,7 +47,7 @@ public class Fernandez_Esteban_Pagos {
         nombre = scanner.next();
         System.out.print("Ingrese el apellido del empleado: ");
         apellido = scanner.next();
-        System.out.println("Ingrese las horas trabajadas: ");
+        System.out.print("Ingrese las horas trabajadas: ");
         horas = scanner.nextInt();
 
         System.out.println("Seleccione la categoria del empleado:");
@@ -95,14 +95,17 @@ public class Fernandez_Esteban_Pagos {
             default:
                 System.out.println("Categoria no valida");
         }
-
-        total = (horasNormales * 35.99) + pagoExtra;
+        saldo = horasNormales * 35.99;
+        total = saldo + pagoExtra;
 
         System.out.println("El codigo del empleado: " + codigo);
         System.out.println("Nombre del empleado: " + nombre);
         System.out.println("Apellido del empleado: " + apellido);
         System.out.println("Horas Trabajadas: " + horasNormales);
-        System.out.println("El pago es de: " + String.format("\n", total));
+        System.out.println("Horas Extras Trabajadas: " + horasExtra);
+        System.out.println("El Pago base es de: " + String.format("%.2f", saldo));
+        System.out.println("El pago Extra es de: " + pagoExtra);
+        System.out.println("El pago es de: " + String.format("%.2f", total));
 
     }
 }
