@@ -156,7 +156,7 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                         System.out.println("1. Encriptar texto");
                         System.out.println("2. Desencriptar");
                         System.out.println("3. Regresar");
-                        System.out.print("Seleccione una opción: ");
+                        System.out.print("Seleccione una opcion: ");
                         opcion = scanner.nextInt();
 
                         switch (opcion) {
@@ -197,6 +197,7 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                                         }
                                     }
 
+                                    System.out.println("Texto Encriptado: " + ultimoEncriptado);
                                     System.out.println("Texto desencriptado: " + textoDesencriptado);
                                 }
                                 break;
@@ -206,7 +207,7 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                                 break;
 
                             default:
-                                System.out.println("Opcion inválida. Intente de nuevo.");
+                                System.out.println("Opcion invalida. Intente de nuevo.");
                         }
 
                     } while (opcion != 3);
