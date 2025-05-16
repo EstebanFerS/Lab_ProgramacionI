@@ -87,7 +87,8 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     Identificar y mostrar únicamente aquellas palabras que tengan una cantidad de caracteres estrictamente mayor al valor 
                     ingresado en forma de lista.
                     Se recomienda ignorar signos de puntuación y considerar como palabras aquellas secuencias de caracteres separadas por espacios.
-                     */
+                    */
+                    
                     System.out.println("----------------------");
                     System.out.println("\tFiltar");
                     System.out.println("----------------------");
@@ -123,9 +124,35 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     break;
 
                 case 3:
+                    
+                    /*
+                    Hacer un programa en Java que permita al usuario encriptar y desencriptar un texto utilizando una técnica simple basada en la 
+                    posición de los caracteres. El programa debe mostrar un menú interactivo para que el usuario elija la opción deseada.
+                    El programa debe mostrar un menú con las siguientes opciones:
+                    1. Encriptar texto
+                    2. Desencriptar texto
+                    3. Regresar
+                    La encriptación debe consistir en:
+                    Separar los caracteres ubicados en posiciones pares y posiciones impares del texto original.
+                    Concatenar primero los caracteres de posiciones pares y luego los de posiciones impares.
+                    Texto original: "mensaje"
+                    Posiciones pares: 'm', 'n', 'a', 'e' → "mnae"
+                    Posiciones impares: 'e', 's', 'j' → "esj"
+                    Texto encriptado: "mnaeesj"
+                    La desencriptación debe:
+                    Tomar un texto encriptado generado con el método anterior.
+                    Separar la primera mitad como los caracteres de posiciones pares y la segunda mitad como los de posiciones impares.
+                    Reconstruir el texto original intercalando ambos grupos de caracteres.
+                    Ejemplo:
+                    Texto encriptado: "msjenae"
+                    Resultado: "mensaje"
+                    */
+                    
                     System.out.println("------------------------------");
                     System.out.println("\tCodigo Enigma");
                     System.out.println("------------------------------");
+                    
+                    
                     break;
                 case 4:
                     System.out.println("Saliendo del Programa");
