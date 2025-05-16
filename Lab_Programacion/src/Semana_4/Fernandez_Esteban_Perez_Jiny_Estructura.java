@@ -19,9 +19,10 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
         int opcion = 0;
 
         while (opcion != 4) {
-
+            System.out.println("--------------------");
             System.out.println("\tMenu");
-            System.out.println("1. Cifrado");
+            System.out.println("--------------------");
+            System.out.println("1. Cifrado Cesar");
             System.out.println("2. Filtrado");
             System.out.println("3. Codigo Enigma");
             System.out.println("4. Salir");
@@ -30,10 +31,51 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Cifrado");
+                    
+                    /*
+                    Hacer un programa en Java que permita aplicar el cifrado César a una frase ingresada por el usuario desde el teclado. 
+                    El programa debe solicitar una cadena de texto y un número entero positivo que representará la cantidad de posiciones que se desea desplazar 
+                    cada letra dentro del alfabeto.El cifrado debe cumplir con las siguientes condiciones:
+                    Solo deben cifrarse las letras del alfabeto, manteniendo sin cambios los espacios, números, signos de puntuación y demás símbolos.
+                    El cifrado debe preservar las mayúsculas y minúsculas, desplazando cada letra respetando su caso.
+                    El desplazamiento debe realizarse en sentido positivo, es decir, hacia la derecha en el alfabeto. Si se sobrepasa la letra Z o z, 
+                    se debe continuar desde el inicio del alfabeto.
+                    Cifrado Cesar:
+                    El cifrado César es un método de encriptación muy antiguo, atribuido a Julio César. Consiste en desplazar cada letra del mensaje un número 
+                    fijo de posiciones en el alfabeto.
+                    Por ejemplo, si usamos un desplazamiento de +3:
+                    'A' se convierte en 'D'
+                    'B' en 'E'
+                    'Z' vuelve al inicio y se convierte en 'C'
+                    Este tipo de cifrado solo afecta a letras, dejando los espacios, números y símbolos sin cambios.
+                    */
+                    
+                    System.out.println("----------------------------");
+                    System.out.println("\tCifrado Cesar");
+                    System.out.println("----------------------------\n");
+                    System.out.print("Ingrese la frase a cifrar: ");
+                    String texto = scanner.next();
+
+                    System.out.print("Cantidad de desplazamiento: ");
+                    int desplazamiento = scanner.nextInt();
+                    String textoCifrado = "";
+
+                    for (int i = 0; i < texto.length(); i++) {
+                        char letra = texto.charAt(i);
+
+                        if (letra >= 'A' && letra <= 'Z') {
+                            letra = (char) ('A' + (letra - 'A' + desplazamiento) % 26);
+                        } else if (letra >= 'a' && letra <= 'z') {
+                            letra = (char) ('a' + (letra - 'a' + desplazamiento) % 26);
+                        }
+                        textoCifrado += letra;
+                    }
+
+                    System.out.println("Texto cifrado: " + textoCifrado);
+
                     break;
                 case 2:
-                    
+
                     /*
                     2 - FILTRAR:
                     Hacer un programa en Java que permita procesar una frase ingresada por el usuario. El objetivo es extraer y mostrar por \
@@ -46,8 +88,9 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     ingresado en forma de lista.
                     Se recomienda ignorar signos de puntuación y considerar como palabras aquellas secuencias de caracteres separadas por espacios.
                      */
-                    
-                    System.out.println("Filtar");
+                    System.out.println("----------------------");
+                    System.out.println("\tFiltar");
+                    System.out.println("----------------------");
 
                     String frase = "",
                      palabra = "",
@@ -74,14 +117,15 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     if (palabra.length() >= longitudMin) {
                         palabraslongitud += "\n" + palabra;
                     }
-
+                    
                     System.out.print("Palabras con longitud de " + longitudMin + ":");
                     System.out.println(palabraslongitud);
                     break;
-                    
-                case 3:
-                    System.out.println("Codigo Enigma");
 
+                case 3:
+                    System.out.println("------------------------------");
+                    System.out.println("\tCodigo Enigma");
+                    System.out.println("------------------------------");
                     break;
                 case 4:
                     System.out.println("Saliendo del Programa");
