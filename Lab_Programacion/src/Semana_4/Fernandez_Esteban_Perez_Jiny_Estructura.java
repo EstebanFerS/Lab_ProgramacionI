@@ -31,7 +31,7 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
 
             switch (opcion) {
                 case 1:
-                    
+
                     /*
                     Hacer un programa en Java que permita aplicar el cifrado César a una frase ingresada por el usuario desde el teclado. 
                     El programa debe solicitar una cadena de texto y un número entero positivo que representará la cantidad de posiciones que se desea desplazar 
@@ -48,8 +48,7 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     'B' en 'E'
                     'Z' vuelve al inicio y se convierte en 'C'
                     Este tipo de cifrado solo afecta a letras, dejando los espacios, números y símbolos sin cambios.
-                    */
-                    
+                     */
                     System.out.println("----------------------------");
                     System.out.println("\tCifrado Cesar");
                     System.out.println("----------------------------\n");
@@ -87,8 +86,7 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     Identificar y mostrar únicamente aquellas palabras que tengan una cantidad de caracteres estrictamente mayor al valor 
                     ingresado en forma de lista.
                     Se recomienda ignorar signos de puntuación y considerar como palabras aquellas secuencias de caracteres separadas por espacios.
-                    */
-                    
+                     */
                     System.out.println("----------------------");
                     System.out.println("\tFiltar");
                     System.out.println("----------------------");
@@ -118,13 +116,13 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     if (palabra.length() >= longitudMin) {
                         palabraslongitud += "\n" + palabra;
                     }
-                    
+
                     System.out.print("Palabras con longitud de " + longitudMin + ":");
                     System.out.println(palabraslongitud);
                     break;
 
                 case 3:
-                    
+
                     /*
                     Hacer un programa en Java que permita al usuario encriptar y desencriptar un texto utilizando una técnica simple basada en la 
                     posición de los caracteres. El programa debe mostrar un menú interactivo para que el usuario elija la opción deseada.
@@ -146,14 +144,74 @@ public class Fernandez_Esteban_Perez_Jiny_Estructura {
                     Ejemplo:
                     Texto encriptado: "msjenae"
                     Resultado: "mensaje"
-                    */
-                    
+                     */
                     System.out.println("------------------------------");
                     System.out.println("\tCodigo Enigma");
                     System.out.println("------------------------------");
-                    
-                    
+
+                    String ultimoEncriptado = "";
+
+                    do {
+                        System.out.println("\n--- Menu ---");
+                        System.out.println("1. Encriptar texto");
+                        System.out.println("2. Desencriptar");
+                        System.out.println("3. Regresar");
+                        System.out.print("Seleccione una opción: ");
+                        opcion = scanner.nextInt();
+
+                        switch (opcion) {
+                            case 1:
+                                System.out.print("Ingrese el texto a encriptar: ");
+                                String textoEncriptar = scanner.next();
+
+                                String pares = "";
+                                String impares = "";
+
+                                for (int i = 0; i < textoEncriptar.length(); i++) {
+                                    if (i % 2 == 0) {
+                                        pares += textoEncriptar.charAt(i);
+                                    } else {
+                                        impares += textoEncriptar.charAt(i);
+                                    }
+                                }
+
+                                ultimoEncriptado = pares + impares;
+                                System.out.println("Texto encriptado: " + ultimoEncriptado);
+                                break;
+
+                            case 2:
+                                if (ultimoEncriptado.equals("")) {
+                                    System.out.println("No hay texto encriptado previamente.");
+                                } else {
+                                    int mitad = (ultimoEncriptado.length() + 1) / 2;
+                                    String partePares = ultimoEncriptado.substring(0, mitad);
+                                    String parteImpares = ultimoEncriptado.substring(mitad);
+
+                                    String textoDesencriptado = "";
+
+                                    for (int i = 0; i < ultimoEncriptado.length(); i++) {
+                                        if (i % 2 == 0 && i / 2 < partePares.length()) {
+                                            textoDesencriptado += partePares.charAt(i / 2);
+                                        } else if (i % 2 != 0 && i / 2 < parteImpares.length()) {
+                                            textoDesencriptado += parteImpares.charAt(i / 2);
+                                        }
+                                    }
+
+                                    System.out.println("Texto desencriptado: " + textoDesencriptado);
+                                }
+                                break;
+
+                            case 3:
+                                System.out.println("Saliendo del programa...");
+                                break;
+
+                            default:
+                                System.out.println("Opcion inválida. Intente de nuevo.");
+                        }
+
+                    } while (opcion != 3);
                     break;
+                    
                 case 4:
                     System.out.println("Saliendo del Programa");
                     Thread.sleep(2500);
