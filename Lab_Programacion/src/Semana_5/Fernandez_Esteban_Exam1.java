@@ -190,6 +190,7 @@ public class Fernandez_Esteban_Exam1 {
                             eleccionSistema = "tijera";
                         }
 
+                        
                         System.out.println("La computadora eligio: " + eleccionSistema);
 
                         if (eleccionUsuario.equals(eleccionSistema)) {
