@@ -140,48 +140,144 @@ public class Fernandez_Esteban_Exam1 {
                     break;
 
                 case 3:
+
+                    /*
+                    Crear un programa en Java que permita al usuario jugar contra la computadora. A continuación, se describen los requisitos del ejercicio:
+                    
+                    Programa:
+                    - El programa debe imprimir un mensaje de bienvenida al usuario.
+                    - Se debe utilizar un loop para permitir múltiples rondas del juego.
+                    
+                    Entrada de Usuario:
+                    - Solicitar al usuario que ingrese su elección entre "piedra", "papel" o "tijera".
+                    - Validar la entrada del usuario para garantizar que solo se ingresen opciones válidas. Si la entrada no es válida, solicitar al usuario que ingrese nuevamente.
+                    
+                    Elección de la Computadora:
+                    - Generar aleatoriamente la elección de la computadora entre "piedra", "papel" o "tijera". Buscar Random
+                    
+                    Comparación y Anuncio del Ganador:
+                    - Comparar la elección del usuario con la elección de la computadora según las reglas del juego.
+                    - Imprimir un mensaje indicando la elección de la computadora y anunciar al ganador de la ronda o si hay un empate.
+                    
+                    Pregunta de Juego Nuevamente:
+                    - Preguntar al usuario si desea jugar nuevamente.
+                    - Si la respuesta es afirmativa, repetir el juego. Si la respuesta es negativa, finalizar el programa.
+                     */
+                    System.out.println("Bienvenido a Piedra Papel o Tijera :D");
+
+                    boolean jugar = true;
+
+                    while (jugar) {
+                        String eleccionUsuario = "";
+                        while (true) {
+                            System.out.print("\nElija entre Piedra, Papel, o Tijera: ");
+                            eleccionUsuario = scanner.next().toLowerCase();
+                            if (eleccionUsuario.equals("piedra") || eleccionUsuario.equals("papel") || eleccionUsuario.equals("tijera")) {
+                                break;
+                            } else {
+                                System.out.println("Opcion no valida en el piedra papel o tijera");
+                            }
+                        }
+
+                        int aleatorio = random.nextInt(3) + 1;
+                        String eleccionSistema = "";
+
+                        if (aleatorio == 1) {
+                            eleccionSistema = "piedra";
+                        } else if (aleatorio == 2) {
+                            eleccionSistema = "papel";
+                        } else {
+                            eleccionSistema = "tijera";
+                        }
+
+                        System.out.println("La computadora eligio: " + eleccionSistema);
+
+                        if (eleccionUsuario.equals(eleccionSistema)) {
+
+                            System.out.println("Ha sido un Empate");
+
+                        } else if ((eleccionUsuario.equals("piedra") && eleccionSistema.equals("tijera"))
+                                || (eleccionUsuario.equals("papel") && eleccionSistema.equals("piedra"))
+                                || (eleccionUsuario.equals("tijera") && eleccionSistema.equals("papel"))) {
+                            System.out.println("Has Ganado :D ");
+                        } else {
+                            System.out.println("La computadora ha ganado :c");
+                        }
+
+                        System.out.println("");
+                        System.out.println("Desea jugar otra ronda?");
+
+                        boolean opcionCorrecta = false;
+
+                        while (!opcionCorrecta) {
+
+                            System.out.print("(si/no): ");
+                            String continuar = scanner.next().toLowerCase();
+
+                            if (continuar.equals("si")) {
+
+                                System.out.println("Que disfrute las rondas que desee");
+                                opcionCorrecta = true;
+
+                            } else if (continuar.equals("no")) {
+
+                                System.out.println("Gracias por jugar Piedra Papel o Tijera");
+                                opcionCorrecta = true;
+                                jugar = false;
+                                break;
+
+                            } else {
+
+                                System.out.println("No es una opcion valida elija una");
+                                opcionCorrecta = false;
+
+                            }
+                        }
+                    }
+
                     break;
 
                 case 4:
-                    
+
                     /*
                     Crear un programa que permita adivinar un número. El programa genera un número aleatorio del 1 al 100. 
                     A continuación va pidiendo números y va respondiendo si el número a adivinar es mayor o menor que el introducido,
                     a demás de los intentos que tiene el usuario (10 intentos para acertarlo). El programa termina cuando se acierta el número 
                     (además indicar en cuantos intentos lo ha acertado), si se llega al límite de intentos mostrar el número que había generado de forma aleatoria.
-                    */
-                    
-                    int numAleatorio = 0, numUsuario = 0, intentos = 10;
+                     */
+                    int numAleatorio = 0,
+                     numUsuario = 0,
+                     intentos = 10;
                     boolean acertado = false;
-                    
+
                     numAleatorio = random.nextInt(100) + 1;
                     System.out.println("Adivna el numero entre 1 - 100 ");
-                    
-                    while(!acertado && intentos > 0){
-                        
+
+                    while (!acertado && intentos > 0) {
+
                         System.out.print("Ingrese un numero: ");
                         numUsuario = scanner.nextInt();
-                        
-                        if(numUsuario < numAleatorio){
+
+                        if (numUsuario < numAleatorio) {
                             System.out.println("El numero es Mayor");
-                        }else if(numUsuario > numAleatorio){
+                        } else if (numUsuario > numAleatorio) {
                             System.out.println("El numero es Menor");
-                        }else{
+                        } else {
                             acertado = true;
-                            System.out.println("Has acertado el numero en: " + (11-intentos)+ " intentos");
+                            System.out.println("Has acertado el numero en: " + (11 - intentos) + " intentos");
                             break;
                         }
-                        
-                        intentos --;
-                        
-                        if(intentos == 0 && !acertado){
+
+                        intentos--;
+
+                        if (intentos == 0 && !acertado) {
                             System.out.println("Ya no quedan mas intentos");
                             System.out.println("El numero era: " + numAleatorio);
-                        }else if(!acertado){
+                        } else if (!acertado) {
                             System.out.println("Intentos Restantes: " + intentos);
                         }
                     }
-                    
+
                     break;
 
                 case 5:
