@@ -5,6 +5,7 @@
 package Semana_5;
 
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  *
@@ -14,6 +15,7 @@ public class Fernandez_Esteban_Exam1 {
 
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+        Random random = new Random();
         int opcion = 0;
 
         while (opcion != 5) {
@@ -141,6 +143,45 @@ public class Fernandez_Esteban_Exam1 {
                     break;
 
                 case 4:
+                    
+                    /*
+                    Crear un programa que permita adivinar un número. El programa genera un número aleatorio del 1 al 100. 
+                    A continuación va pidiendo números y va respondiendo si el número a adivinar es mayor o menor que el introducido,
+                    a demás de los intentos que tiene el usuario (10 intentos para acertarlo). El programa termina cuando se acierta el número 
+                    (además indicar en cuantos intentos lo ha acertado), si se llega al límite de intentos mostrar el número que había generado de forma aleatoria.
+                    */
+                    
+                    int numAleatorio = 0, numUsuario = 0, intentos = 10;
+                    boolean acertado = false;
+                    
+                    numAleatorio = random.nextInt(100) + 1;
+                    System.out.println("Adivna el numero entre 1 - 100 ");
+                    
+                    while(!acertado && intentos > 0){
+                        
+                        System.out.print("Ingrese un numero: ");
+                        numUsuario = scanner.nextInt();
+                        
+                        if(numUsuario < numAleatorio){
+                            System.out.println("El numero es Mayor");
+                        }else if(numUsuario > numAleatorio){
+                            System.out.println("El numero es Menor");
+                        }else{
+                            acertado = true;
+                            System.out.println("Has acertado el numero en: " + (11-intentos)+ " intentos");
+                            break;
+                        }
+                        
+                        intentos --;
+                        
+                        if(intentos == 0 && !acertado){
+                            System.out.println("Ya no quedan mas intentos");
+                            System.out.println("El numero era: " + numAleatorio);
+                        }else if(!acertado){
+                            System.out.println("Intentos Restantes: " + intentos);
+                        }
+                    }
+                    
                     break;
 
                 case 5:
