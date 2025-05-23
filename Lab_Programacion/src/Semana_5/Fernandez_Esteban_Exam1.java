@@ -204,6 +204,7 @@ public class Fernandez_Esteban_Exam1 {
                             System.out.println("La computadora ha ganado :c");
                         }
 
+                        Thread.sleep(2000);
                         System.out.println("");
                         System.out.println("Desea jugar otra ronda?");
 
